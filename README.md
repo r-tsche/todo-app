@@ -1,27 +1,17 @@
-# AngularTodoApp
+# Angular ToDo App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.8.
+Running the project locally:
+- Install Angular packages by `npm install`
+- Install BE packages in folder `angular-todo-be` by `npm install`
+- Run the backend inside `angular-todo-be` with command `npm start`
+- Paralelly run the frontend in the root folder with command `npm start`
+- In your preferred browser go to [localhost:4200](http://localhost:4200) 
+- You can login to the application with credential: `username: admin, password: admin`
+- I tried to make the application intuitive, so hopefully no additional information is needed to work with the UI
 
-## Development server
+## Backend
+The main goal was to create an Angular application, so I didn't really focus to write a clean code in backend, so please do not have a look at it (I tried to create there something functional as soon as possible).
+The backend was done in node.js with no database, the items are saved into a local file.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Testing
+No unit and no e2e tests are found in this project
