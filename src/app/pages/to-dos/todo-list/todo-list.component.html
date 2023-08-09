@@ -8,6 +8,14 @@
   </div>
 </ng-container>
 
+<ng-container
+  *ngIf="requestState === RequestState.SUCCESS && !todoLists.length"
+>
+  <div class="empty-list">
+    <span>No lists are found, please create a new ToDo list</span>
+  </div>
+</ng-container>
+
 <ng-container *ngIf="requestState !== RequestState.LOADING">
   <div class="content">
     <ng-container *ngFor="let list of todoLists">

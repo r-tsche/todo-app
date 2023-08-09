@@ -72,6 +72,13 @@
   font-size: large;
 }
 
+.empty-list {
+  text-align: center;
+  font-size: large;
+  font-weight: bold;
+  margin-top: 2rem;
+}
+
 @media (max-width: 780px) {
   .todo-list {
     &__items {
