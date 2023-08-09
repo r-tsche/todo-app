@@ -1,0 +1,43 @@
+<h1 mat-dialog-title>Add new Item</h1>
+<mat-dialog-content>
+  <form [formGroup]="form" class="add-item-form">
+    <mat-form-field>
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title" type="text" name="title" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Textarea</mat-label>
+      <textarea formControlName="description" matInput></textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Choose a deadline</mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        formControlName="deadline"
+        [min]="minDate"
+      />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <ng-container *ngIf="requestState != RequestState.LOADING; else loading">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button
+      [disabled]="!form.valid"
+      mat-flat-button
+      color="primary"
+      (click)="addNewItem()"
+    >
+      Add
+    </button>
+  </ng-container>
+  <ng-template #loading>
+    <div class="spinner">
+      <mat-spinner [diameter]="30"></mat-spinner>
+    </div>
+  </ng-template>
+</mat-dialog-actions>

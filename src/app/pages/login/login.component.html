@@ -1,0 +1,29 @@
+<div class="login-box">
+  <h2>Login</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="login()" class="login-form-items">
+    <mat-form-field appearance="outline" class="flex-row">
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="username" type="text" name="username" />
+      <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field
+      appearance="outline"
+      class="flex-row"
+      subscriptSizing="dynamic"
+    >
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        type="password"
+        name="password"
+        formControlName="password"
+      />
+      <mat-icon matSuffix>key</mat-icon>
+    </mat-form-field>
+
+    <button [disabled]="loginForm.invalid" color="primary" mat-flat-button>
+      Login
+    </button>
+  </form>
+</div>

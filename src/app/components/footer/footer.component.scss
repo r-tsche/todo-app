@@ -1,0 +1,10 @@
+@import "../../styles.scss/colors";
+
+footer {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  background-color: $footer-color;
+  color: $font-footer-color;
+  text-align: center;
+  margin-top: 2rem;
+}

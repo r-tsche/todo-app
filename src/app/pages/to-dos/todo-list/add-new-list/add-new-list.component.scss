@@ -1,0 +1,11 @@
+@import "../../../../styles.scss/variables";
+
+.add-list-form {
+  width: $form-width;
+}
+
+@media (max-width: 780px) {
+  .add-list-form {
+    width: unset;
+  }
+}

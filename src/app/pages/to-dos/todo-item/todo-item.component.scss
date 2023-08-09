@@ -1,0 +1,124 @@
+@import "../../../styles.scss/colors";
+@import "../../../styles.scss/variables";
+
+.content {
+  width: $main-content-width;
+  margin: auto;
+  margin-top: 1.5rem;
+}
+
+.todo-list {
+  background-color: $paper-color;
+  width: 100%;
+  padding: $main-content-padding;
+  border-radius: $box-border-radius;
+
+  &__filters {
+    display: flex;
+    justify-content: space-between;
+    width: calc($main-content-width + 2 * $main-content-padding);
+
+    &-search {
+      width: 15rem;
+    }
+    &-state {
+      width: 7rem;
+    }
+  }
+
+  &__title {
+    color: $font-title-color;
+    font-size: xx-large;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    button {
+      &:hover {
+        transform: rotate(90deg) scale(1.1);
+        transition: 0.2s;
+        transition-timing-function: ease-in;
+      }
+    }
+  }
+
+  &__items {
+    color: $font-items-color;
+    font-size: large;
+    padding: 0 !important;
+    font-family: courier, monospace;
+    border: 1px solid $box-border-color;
+
+    &-checkbox {
+      font-family: courier, monospace;
+    }
+
+    &-completed {
+      text-decoration: line-through;
+    }
+
+    &-first-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    &-description-row {
+      padding-left: 1rem;
+    }
+
+    &-date-past {
+      color: $past-date-color;
+    }
+
+    li {
+      list-style: none;
+      border-bottom: 1px dotted $item-border-color;
+      height: auto;
+      padding: 0.5rem;
+      text-transform: capitalize;
+
+      &:hover {
+        background-color: $item-hover-color;
+      }
+
+      span {
+        white-space: normal;
+      }
+    }
+  }
+}
+
+.mat-checkbox-layout {
+  white-space: normal;
+}
+
+.action-row {
+  width: $main-content-width;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 780px) {
+  .content {
+    width: 90%;
+  }
+
+  .todo-list {
+    padding: 0;
+    &__filters {
+      width: 100%;
+
+      &-search {
+        width: unset;
+      }
+    }
+  }
+  .action-row {
+    width: 100%;
+  }
+}

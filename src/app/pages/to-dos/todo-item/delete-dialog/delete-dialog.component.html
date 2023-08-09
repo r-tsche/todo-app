@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>
+  Are you sure you want to delete this
+  <span *ngIf="data.itemId; else list">item</span> ?
+</h1>
+<ng-template #list><span>list</span></ng-template>
+
+<mat-dialog-actions align="end">
+  <ng-container *ngIf="requestState != RequestState.LOADING; else loading">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-flat-button color="warn" (click)="onDelete()">Delete</button>
+  </ng-container>
+
+  <ng-template #loading>
+    <div class="spinner">
+      <mat-spinner color="warn" [diameter]="30"></mat-spinner>
+    </div>
+  </ng-template>
+</mat-dialog-actions>

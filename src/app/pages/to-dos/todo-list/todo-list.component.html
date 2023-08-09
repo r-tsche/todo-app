@@ -1,0 +1,40 @@
+<ng-container *ngIf="requestState === RequestState.LOADING">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar
+></ng-container>
+<ng-container *ngIf="requestState === RequestState.ERROR">
+  <div class="list-error">
+    <mat-icon>error</mat-icon>
+    <span> Unable to load Todo Lists. Please try again later. </span>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="requestState !== RequestState.LOADING">
+  <div class="content">
+    <ng-container *ngFor="let list of todoLists">
+      <div class="todo-list" (click)="openList(list.id)">
+        <span class="todo-list__title">
+          {{ list.title }}
+        </span>
+        <ul class="todo-list__items">
+          <li *ngFor="let item of list.items">
+            <span
+              [ngClass]="item.completed ? 'todo-list__items-completed' : ''"
+            >
+              {{ item.title }}
+            </span>
+          </li>
+        </ul>
+      </div>
+    </ng-container>
+  </div>
+</ng-container>
+
+<button
+  mat-mini-fab
+  aria-label="Add new item icon"
+  (click)="addNewList()"
+  class="btn-add-list"
+  matTooltip="Add new list"
+>
+  <mat-icon>add</mat-icon>
+</button>

@@ -1,0 +1,39 @@
+@import "../../styles.scss/colors";
+@import "../../styles.scss/variables";
+
+.login-box {
+  width: 31rem;
+  background-color: $box-background-color;
+  padding: 2rem;
+  padding-top: 1rem;
+  text-align: center;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: $box-border-radius;
+
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
+  h2 {
+    padding-bottom: 1rem;
+  }
+}
+
+.login-form-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+::ng-deep .mat-mdc-form-field-subscript-wrapper {
+  display: none !important;
+}
+
+@media (max-width: 780px) {
+  .login-box {
+    width: 90%;
+  }
+}

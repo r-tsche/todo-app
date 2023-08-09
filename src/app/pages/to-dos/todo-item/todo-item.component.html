@@ -1,0 +1,99 @@
+<ng-container *ngIf="requestState === RequestState.LOADING">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar
+></ng-container>
+<ng-container *ngIf="requestState !== RequestState.LOADING">
+  <div class="content">
+    <div class="todo-list__filters">
+      <mat-form-field class="todo-list__filters-search">
+        <mat-label>Search items</mat-label>
+        <input matInput [(ngModel)]="filterBy" />
+      </mat-form-field>
+
+      <mat-form-field class="todo-list__filters-state">
+        <mat-label>Display items</mat-label>
+        <mat-select [(value)]="currentItemState">
+          <mat-option *ngFor="let state of itemState" [value]="state.value">
+            {{ state.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="todo-list">
+      <div class="todo-list__title">
+        <span>
+          {{ title }}
+        </span>
+        <button
+          mat-mini-fab
+          aria-label="Add new item icon"
+          (click)="addNewItem()"
+          matTooltip="Add new item"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+
+      <ul class="todo-list__items">
+        <li
+          *ngFor="
+            let item of todoItems
+              | filterItem : filterBy
+              | filterState : currentItemState
+          "
+        >
+          <div class="todo-list__items-first-row">
+            <mat-checkbox
+              class="todo-list__items-checkbox"
+              [checked]="item.completed"
+              (change)="changeStatus($event.checked, item)"
+            >
+              <span
+                [ngClass]="item.completed ? 'todo-list__items-completed' : ''"
+                [matTooltip]="item.title.length > 18 ? item.title : ''"
+              >
+                {{ item.title | truncate : [18, "..."] }}
+              </span>
+            </mat-checkbox>
+
+            <span
+              [ngClass]="[
+                item.completed ? 'todo-list__items-completed' : '',
+                isPastDeadline(item.deadline)
+                  ? 'todo-list__items-date-past'
+                  : ''
+              ]"
+              >{{ item.deadline | date }}</span
+            >
+
+            <button
+              mat-icon-button
+              color="warn"
+              aria-label="Delete button with delete icon"
+              (click)="deleteItem(item.id)"
+              matTooltip="Delete item"
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+          <div
+            class="todo-list__items-description-row"
+            *ngIf="item.description"
+          >
+            <span
+              [ngClass]="item.completed ? 'todo-list__items-completed' : ''"
+              >{{ item.description }}</span
+            >
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="action-row">
+    <button mat-flat-button color="warn" (click)="deleteList()">
+      Delete List
+    </button>
+
+    <button mat-flat-button color="primary" routerLink="/">All lists</button>
+  </div>
+</ng-container>

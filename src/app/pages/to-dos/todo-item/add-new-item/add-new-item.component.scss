@@ -1,0 +1,13 @@
+@import "../../../../styles.scss/variables";
+
+.add-item-form {
+  display: flex;
+  flex-direction: column;
+  width: $form-width;
+}
+
+@media (max-width: 780px) {
+  .add-item-form {
+    width: unset;
+  }
+}

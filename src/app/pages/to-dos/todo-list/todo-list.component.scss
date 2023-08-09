@@ -1,0 +1,81 @@
+@import "../../../styles.scss/colors";
+@import "../../../styles.scss/variables";
+
+.content {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.todo-list {
+  border-radius: $box-border-radius;
+  background-color: $paper-color;
+  cursor: pointer;
+  width: fit-content;
+  padding: 1rem;
+  height: max-content;
+
+  &__title {
+    color: $font-title-color;
+    font-size: xx-large;
+    text-align: left;
+  }
+
+  &__items {
+    color: $font-items-color;
+    font-size: large;
+    padding: 0 !important;
+    width: 25rem;
+    font-family: courier, monospace;
+    border: 1px solid $box-border-color;
+
+    &-completed {
+      text-decoration: line-through;
+    }
+    li {
+      list-style: none;
+      border-bottom: 1px dotted $item-border-color;
+      height: auto;
+      padding: 0.5rem;
+      padding-left: 1.5rem;
+      text-transform: capitalize;
+
+      &:hover {
+        background-color: $item-hover-color;
+      }
+    }
+  }
+}
+
+.btn {
+  &-add-list {
+    bottom: 10%;
+    right: 5%;
+    position: fixed;
+
+    &:hover {
+      transform: rotate(90deg) scale(1.5);
+      transition: 0.2s;
+      transition-timing-function: ease-in;
+    }
+  }
+}
+
+.list-error {
+  margin-top: 3rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  font-size: large;
+}
+
+@media (max-width: 780px) {
+  .todo-list {
+    &__items {
+      width: 90vw;
+    }
+  }
+}
