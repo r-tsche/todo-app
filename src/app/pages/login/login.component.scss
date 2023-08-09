@@ -1,6 +1,15 @@
 @import "../../styles.scss/colors";
 @import "../../styles.scss/variables";
 
+:host {
+  height: 100vh;
+  display: block;
+  background-image: url("/assets/bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .login-box {
   width: 31rem;
   background-color: $box-background-color;
